@@ -1,30 +1,50 @@
-// const connection = require("../config/db_config");
+const { validateKycRequest } = require("../utils/validations");
 
 const kycVerification = async (req, res) => {
   try {
     const connection = req.app.get("mysqlConnection");
-    console.log("body", req.body);
-    connection.query("INSERT INTO kyc_verify SET ?", req.body);
+    const { first_name, last_name, email_id, pancard_no, mobile_no, dob } =
+      req.body;
 
-    res.status(201).json({ success: true, message: "Data inserted" });
+    let sql = await connection.query(
+      `SELECT * FROM kyc_verify where mobile_no = ${mobile_no}`
+    );
+
+    if (!sql[0][0].is_mobile_verify) {
+      return res.status(400).json({
+        status: "failed",
+        message: `Mobile no. not verified`,
+      });
+    }
+    const validations = [
+      { param: "first_name", type: "string", required: true },
+      { param: "last_name", type: "string", required: true },
+      { param: "email_id", type: "string", required: true },
+      { param: "pancard_no", type: "string", required: true },
+      { param: "mobile_no", type: "number", required: true },
+      { param: "dob", type: "string", required: true },
+    ];
+    const errors = validateKycRequest(req.body, validations);
+    if (errors.length > 0) {
+      return res.status(400).json({
+        success: false,
+        message: `Validation error - ${errors.join(" | ")}`,
+      });
+    }
+    connection.query("INSERT INTO kyc_verify SET ?", req.body);
+    res.status(201).json({
+      success: true,
+      message: "KYC Data validated successfully and saved",
+      ...req.body,
+    });
   } catch (error) {
     console.log("Kyc Error", error);
-    res.status(400).json({ success: false, message: "Insertion failed" });
+    res
+      .status(500)
+      .json({ success: false, message: "KYC Data insertion failed" });
   }
 };
 
 module.exports = {
   kycVerification,
 };
-
-// await new Promise((resolve, reject) => {
-//     db.query("INSERT INTO product_details SET ?", payload, (error, result) => {
-//         if (error) {
-//             console.error('Error inserting product:', error);
-//             reject(error);
-//         } else {
-//             console.log("Data inserted successfully");
-//             resolve(result);
-//         }
-//     });
-// });
