@@ -20,8 +20,9 @@ const kycVerification = async (req, res) => {
       { param: "first_name", type: "string", required: true },
       { param: "last_name", type: "string", required: true },
       { param: "email_id", type: "string", required: true },
-      { param: "pancard_no", type: "string", required: true },
       { param: "mobile_no", type: "number", required: true },
+      { param: "aadharcard_no", type: "number", required: true },
+      { param: "pancard_no", type: "string", required: true },
       { param: "dob", type: "string", required: true },
     ];
     const errors = validateKycRequest(req.body, validations);

@@ -83,7 +83,7 @@ const verifyOtp = async (req, res) => {
       await connection.query(sql, params);
       return res.status(200).json({
         success: true,
-        message: "Otp verified",
+        message: "Otp verified successfully",
       });
     } else {
       return res.status(400).json({

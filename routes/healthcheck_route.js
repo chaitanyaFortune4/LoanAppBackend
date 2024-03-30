@@ -5,7 +5,7 @@ router.get("/", async (req, res) => {
   const healthCheck = {
     uptime: process.uptime(),
     responseTime: process.hrtime(),
-    message: "Loan Approval server is running OK",
+    message: "Loan Application server is running OK",
     timeStamp: Date.now(),
   };
   try {

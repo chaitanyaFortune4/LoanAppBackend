@@ -26,6 +26,11 @@ const validateKycRequest = (body, validations) => {
       acc.push(`Invalid format for ${param}.`);
     } else if (param === "dob" && !isValidDate(body[param])) {
       acc.push(`Invalid format for ${param}. Expected YYYY-MM-DD format.`);
+    } else if (
+      param === "aadharcard_no" &&
+      body[param].toString().length !== 12
+    ) {
+      acc.push(`Invalid ${param}. It should be 12 digits.`);
     } else if (param === "pancard_no" && !isValidPanCardNumber(body[param])) {
       acc.push(`Invalid ${param}`);
     } else if (param === "mobile_no" && body[param].toString().length !== 10) {
