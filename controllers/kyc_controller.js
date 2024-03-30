@@ -39,7 +39,6 @@ const kycVerification = async (req, res) => {
     const filteredData = pancards.find(
       (item) => item.pancard_number === pancard_no
     );
-    console.log("FD", filteredData);
 
     if (!filteredData || !filteredData.status || filteredData.status != 1) {
       return res
