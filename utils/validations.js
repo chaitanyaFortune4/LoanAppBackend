@@ -35,6 +35,8 @@ const validateKycRequest = (body, validations) => {
       acc.push(`Invalid ${param}`);
     } else if (param === "mobile_no" && body[param].toString().length !== 10) {
       acc.push(`Invalid ${param}. It should be 10 digits.`);
+    } else if (param === "pincode" && body[param].toString().length !== 6) {
+      acc.push(`Invalid ${param}. It should be 6 digits.`);
     }
     return acc;
   }, []);

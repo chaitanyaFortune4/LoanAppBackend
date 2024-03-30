@@ -17,14 +17,13 @@ app.use(cors({ origin: true }));
 
 // Import routes
 const healthCheckRouter = require("./routes/healthcheck_route");
-const loanProcessRouter = require('./routes/loanProcess_route')
+const loanProcessRouter = require("./routes/loanProcess_route");
 
 // Route setup
 app.use("/api/v1", loanProcessRouter);
 
 // Welcome & healthCheck route
 app.use("/", healthCheckRouter);
-
 
 // Start the server
 // app.listen(PORT, () => {
@@ -36,3 +35,11 @@ connectDB().then((connection) => {
     console.log(`Server is running on port: ${PORT}`);
   });
 });
+
+// const filteredData = data
+//   .filter((obj) => obj.country_code === "IN")
+//   .map((obj, index) => ({
+//     ...obj,
+//     id: index + 1,
+//   }));
+// console.log("filteredData", JSON.stringify(filteredData));

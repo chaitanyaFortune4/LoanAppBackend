@@ -10,9 +10,9 @@ const kycVerification = async (req, res) => {
       `SELECT * FROM kyc_verify where mobile_no = ${mobile_no}`
     );
 
-    if (!sql[0][0].is_mobile_verify) {
+    if (sql[0].length < 1 || !sql[0][0].is_mobile_verify) {
       return res.status(400).json({
-        status: "failed",
+        success: false,
         message: `Mobile no. not verified`,
       });
     }
@@ -24,6 +24,8 @@ const kycVerification = async (req, res) => {
       { param: "aadharcard_no", type: "number", required: true },
       { param: "pancard_no", type: "string", required: true },
       { param: "dob", type: "string", required: true },
+      { param: "address", type: "string", required: true },
+      { param: "pincode", type: "number", required: true },
     ];
     const errors = validateKycRequest(req.body, validations);
     if (errors.length > 0) {
