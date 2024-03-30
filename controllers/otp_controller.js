@@ -19,6 +19,10 @@ const requestOtp = async (req, res) => {
         message: `Validation error - ${errors.join(" | ")}`,
       });
     }
+
+    let delete_previous_otp_query = `DELETE FROM otp_verification WHERE mobile_no=${mobile_no}`;
+    await connection.query(delete_previous_otp_query);
+
     let otp = Math.floor(100000 + Math.random() * 900000);
     let otp_params = {
       mobile_no: mobile_no,
@@ -30,10 +34,11 @@ const requestOtp = async (req, res) => {
     const isEmailSent = await sendEmailOtp(otp_params);
     if (isEmailSent) {
       let userdata = {
-        User_ID: mobile_no,
+        mobile_no: mobile_no,
         otp: otp,
         expire_time: current_time,
       };
+
       let insert_otp_query = `INSERT INTO otp_verification SET ? `;
       await connection.query(insert_otp_query, userdata);
     } else {
@@ -71,7 +76,7 @@ const verifyOtp = async (req, res) => {
     }
 
     let sql = await connection.query(
-      `SELECT * FROM otp_verification where user_id = ${mobile_no}`
+      `SELECT * FROM otp_verification where mobile_no = ${mobile_no}`
     );
 
     if (otp === sql[0][0].otp) {

@@ -9,9 +9,9 @@ const isValidEmail = (email) => {
   return regex.test(email);
 };
 
-const isValidPanCardNumber = () => {
+const isValidPanCardNumber = (pancard_no) => {
   const regex = /^([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
-  return regex.test(email);
+  return regex.test(pancard_no);
 };
 
 const validateKycRequest = (body, validations) => {
@@ -35,6 +35,8 @@ const validateKycRequest = (body, validations) => {
       acc.push(`Invalid ${param}`);
     } else if (param === "mobile_no" && body[param].toString().length !== 10) {
       acc.push(`Invalid ${param}. It should be 10 digits.`);
+    } else if (param === "pincode" && body[param].toString().length !== 6) {
+      acc.push(`Invalid ${param}. It should be 6 digits.`);
     }
     return acc;
   }, []);
@@ -67,7 +69,7 @@ const validateVerifyOtp = (body, validations) => {
       acc.push(
         `Invalid type for ${param}. Expected ${type}, got ${typeof body[param]}`
       );
-    } else if (param === "otp" && body[param].toString().length !== 10) {
+    } else if (param === "otp" && body[param].toString().length !== 6) {
       acc.push(`Invalid ${param}. It should be 6 digits.`);
     } else if (param === "mobile_no" && body[param].toString().length !== 10) {
       acc.push(`Invalid ${param}. It should be 10 digits.`);

@@ -1,7 +1,7 @@
 {
-  "name": "loan_approval",
+  "name": "loan_application",
   "version": "1.0.0",
-  "description": "Different types of loan approval application and process",
+  "description": "Loan approval application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
