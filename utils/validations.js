@@ -125,11 +125,16 @@ const pancardSchema = yup.object({
       "Invalid date format it should be yyyy-mm-dd"
     )
     .required(),
-})
+});
+
+const getUserDetailsSchema = yup.object({
+  lead_no: yup.string().required(),
+});
 
 module.exports = {
   kycSchema,
   requestOtpSchema,
   verifyOtpSchema,
-  pancardSchema
+  pancardSchema,
+  getUserDetailsSchema,
 };
