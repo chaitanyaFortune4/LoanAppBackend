@@ -3,6 +3,7 @@ const router = express.Router();
 const validation = require("../middlewares/validation_middleware");
 const kycController = require("../controllers/kyc_controller");
 const otpController = require("../controllers/otp_controller");
+const userDetals = require("../controllers/user_controller");
 const {
   kycSchema,
   requestOtpSchema,
@@ -18,5 +19,9 @@ router
 router
   .route("/verify-otp")
   .post(validation(verifyOtpSchema), otpController.verifyOtp);
+router
+  .route("/user-details")
+  .post(validation(kycSchema), userDetals.user_details);
+
 
 module.exports = router;
