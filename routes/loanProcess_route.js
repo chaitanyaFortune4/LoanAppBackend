@@ -10,6 +10,7 @@ const {
   requestOtpSchema,
   verifyOtpSchema,
   pancardSchema,
+  getUserDetailsSchema,
 } = require("../utils/validations");
 
 router
@@ -24,8 +25,12 @@ router
 router
   .route("/user-details")
   .post(validation(kycSchema), userDetals.user_details);
+
+router
+  .route("/get-user-details")
+  .post(validation(getUserDetailsSchema), userDetals.getUserDetails);
 router
   .route("/check-credit-score")
-  .post(validation(pancardSchema), creditScore.creditScore)
+  .post(validation(pancardSchema), creditScore.creditScore);
 
 module.exports = router;
