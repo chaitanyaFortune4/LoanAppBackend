@@ -13,9 +13,9 @@ const {
   getUserDetailsSchema,
 } = require("../utils/validations");
 
-router
-  .route("/kyc-details")
-  .post(validation(kycSchema), kycController.kycVerification);
+// router
+//   .route("/kyc-details")
+//   .post(validation(kycSchema), kycController.kycVerification);
 router
   .route("/request-otp")
   .post(validation(requestOtpSchema), otpController.requestOtp);
@@ -23,7 +23,7 @@ router
   .route("/verify-otp")
   .post(validation(verifyOtpSchema), otpController.verifyOtp);
 router
-  .route("/user-details")
+  .route("/kyc-details")
   .post(validation(kycSchema), userDetals.user_details);
 
 router

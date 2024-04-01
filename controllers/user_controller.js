@@ -1,3 +1,4 @@
+const client = require("../config/redis_config");
 const { pancards } = require("../mockJsonData/pancard");
 const { sendEmailLeadNo } = require("../utils/emailService");
 
@@ -31,6 +32,10 @@ const user_details = async (req, res) => {
     );
     if (result1[0].affectedRows === 1) {
       await sendEmailLeadNo(email_id, Lead_no);
+      await client.set(
+        `${Lead_no}`,
+        JSON.stringify({ ...loanBody, ...req.body })
+      );
     }
     res.status(201).json({
       success: true,
@@ -47,10 +52,19 @@ const user_details = async (req, res) => {
 };
 
 const getUserDetails = async (req, res) => {
-  console.log("here");
   try {
     const connection = req.app.get("mysqlConnection");
     const { lead_no } = req.body;
+
+    const cacheData = await client.get(lead_no);
+
+    if (cacheData) {
+      return res.status(200).json({
+        success: true,
+        message: "User details found",
+        data: JSON.parse(cacheData),
+      });
+    }
 
     let sql = await connection.query(
       `SELECT u.* ,l.lead_status,l.lead_no FROM user_details u
