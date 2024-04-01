@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/db_config");
 const dotenv = require("dotenv");
 dotenv.config();
+const redisClient = require("./config/redis_config");
 
 // Create an instance of Express
 const app = express();
@@ -30,16 +31,11 @@ app.use("/", healthCheckRouter);
 //   console.log(`Server is running on port: ${PORT}`);
 // });
 connectDB().then((connection) => {
+  redisClient.on("ready", function () {
+    console.log("Redis is ready");
+  });
   app.set("mysqlConnection", connection);
   app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
   });
 });
-
-// const filteredData = data
-//   .filter((obj) => obj.country_code === "IN")
-//   .map((obj, index) => ({
-//     ...obj,
-//     id: index + 1,
-//   }));
-// console.log("filteredData", JSON.stringify(filteredData));
