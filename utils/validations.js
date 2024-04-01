@@ -102,8 +102,34 @@ const verifyOtpSchema = yup.object({
     .required(),
 });
 
+const pancardSchema = yup.object({
+  pancard_no: yup
+    .string()
+    .matches(/^([A-Z]){5}([0-9]){4}([A-Z]){1}?$/, "Invalid pancard number")
+    .required(),
+  mobile_no: yup
+    .number()
+    .strict()
+    .positive("Mobile number must be a positive number")
+    .integer("Mobile number must be an integer")
+    .test(
+      "len",
+      "Mobile number must be exactly 10 digits",
+      (val) => String(val).length === 10
+    )
+    .required(),
+  dob: yup
+    .string()
+    .matches(
+      /^\d{4}-\d{2}-\d{2}$/,
+      "Invalid date format it should be yyyy-mm-dd"
+    )
+    .required(),
+})
+
 module.exports = {
   kycSchema,
   requestOtpSchema,
   verifyOtpSchema,
+  pancardSchema
 };

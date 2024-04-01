@@ -6,6 +6,7 @@ const pancards = [
     father_name: "TestFatherName Test1",
     date_of_birth: "1995-01-05",
     status: 1,
+    credit_score:800
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const pancards = [
     father_name: "TestFatherName Test2",
     date_of_birth: "2000-02-06",
     status: 1,
+    credit_score:700
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const pancards = [
     father_name: "TestFatherName Test3",
     date_of_birth: "2005-03-07",
     status: 1,
+    credit_score:600
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const pancards = [
     father_name: "TestFatherName Test4",
     date_of_birth: "2005-03-07",
     status: 9,
+    credit_score:500
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const pancards = [
     father_name: "TestFatherName Test5",
     date_of_birth: "2005-03-07",
     status: 9,
+    credit_score:750
   },
 ];
 

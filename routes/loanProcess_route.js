@@ -4,10 +4,12 @@ const validation = require("../middlewares/validation_middleware");
 const kycController = require("../controllers/kyc_controller");
 const otpController = require("../controllers/otp_controller");
 const userDetals = require("../controllers/user_controller");
+const creditScore = require("../controllers/creditScore_controller");
 const {
   kycSchema,
   requestOtpSchema,
   verifyOtpSchema,
+  pancardSchema,
 } = require("../utils/validations");
 
 router
@@ -22,6 +24,8 @@ router
 router
   .route("/user-details")
   .post(validation(kycSchema), userDetals.user_details);
-
+router
+  .route("/check-credit-score")
+  .post(validation(pancardSchema), creditScore.creditScore)
 
 module.exports = router;
