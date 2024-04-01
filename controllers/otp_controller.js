@@ -54,7 +54,7 @@ const verifyOtp = async (req, res) => {
         mobile_no: mobile_no,
         is_mobile_verify: 1,
       };
-      let sql = "INSERT INTO kyc_verify SET ?";
+      let sql = "INSERT INTO user_details SET ?";
       await connection.query(sql, params);
       return res.status(200).json({
         success: true,

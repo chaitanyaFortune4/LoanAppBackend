@@ -7,7 +7,7 @@ const kycVerification = async (req, res) => {
       req.body;
 
     let sql = await connection.query(
-      `SELECT * FROM kyc_verify where mobile_no = ${mobile_no}`
+      `SELECT * FROM user_details where mobile_no = ${mobile_no}`
     );
     if (sql[0].length < 1 || !sql[0][0].is_mobile_verify) {
       return res.status(400).json({
@@ -24,7 +24,7 @@ const kycVerification = async (req, res) => {
         .json({ success: false, message: "Pancard Verfication failed" });
     }
     await connection.query(
-      `UPDATE kyc_verify SET ? where mobile_no = ${mobile_no}`,
+      `UPDATE user_details SET ? where mobile_no = ${mobile_no}`,
       req.body
     );
     res.status(201).json({
