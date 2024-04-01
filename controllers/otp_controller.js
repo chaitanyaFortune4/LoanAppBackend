@@ -1,28 +1,11 @@
 const { sendEmailOtp } = require("../utils/emailService");
-const {
-  validateRequestOtp,
-  validateVerifyOtp,
-} = require("../utils/validations");
 
 const requestOtp = async (req, res) => {
   try {
     const connection = req.app.get("mysqlConnection");
     const { email_id, mobile_no } = req.body;
-    const validations = [
-      { param: "email_id", type: "string", required: true },
-      { param: "mobile_no", type: "number", required: true },
-    ];
-    const errors = validateRequestOtp(req.body, validations);
-    if (errors.length > 0) {
-      return res.status(400).json({
-        success: false,
-        message: `Validation error - ${errors.join(" | ")}`,
-      });
-    }
-
     let delete_previous_otp_query = `DELETE FROM otp_verification WHERE mobile_no=${mobile_no}`;
     await connection.query(delete_previous_otp_query);
-
     let otp = Math.floor(100000 + Math.random() * 900000);
     let otp_params = {
       mobile_no: mobile_no,
@@ -38,7 +21,6 @@ const requestOtp = async (req, res) => {
         otp: otp,
         expire_time: current_time,
       };
-
       let insert_otp_query = `INSERT INTO otp_verification SET ? `;
       await connection.query(insert_otp_query, userdata);
     } else {
@@ -55,7 +37,7 @@ const requestOtp = async (req, res) => {
     console.log("otp error", error);
     res
       .status(500)
-      .json({ success: false, message: "Email OTP request failed" });
+      .json({ success: false, message: "Request OTP on email failed" });
   }
 };
 
@@ -63,18 +45,6 @@ const verifyOtp = async (req, res) => {
   try {
     const connection = req.app.get("mysqlConnection");
     const { otp, mobile_no } = req.body;
-    const validations = [
-      { param: "otp", type: "number", required: true },
-      { param: "mobile_no", type: "number", required: true },
-    ];
-    const errors = validateVerifyOtp(req.body, validations);
-    if (errors.length > 0) {
-      return res.status(400).json({
-        success: false,
-        message: `Validation error - ${errors.join(" | ")}`,
-      });
-    }
-
     let sql = await connection.query(
       `SELECT * FROM otp_verification where mobile_no = ${mobile_no}`
     );

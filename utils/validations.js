@@ -1,87 +1,109 @@
-const { isValid, parseISO } = require("date-fns");
+const yup = require("yup");
+// const { isValid, parseISO } = require("date-fns");
 
-const isValidDate = (dateString) => {
-  return isValid(parseISO(dateString));
-};
+// const isValidDate = (dateString) => {
+//   return isValid(parseISO(dateString));
+// };
 
-const isValidEmail = (email) => {
-  const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return regex.test(email);
-};
+// const isValidEmail = (email) => {
+//   const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//   return regex.test(email);
+// };
 
-const isValidPanCardNumber = (pancard_no) => {
-  const regex = /^([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
-  return regex.test(pancard_no);
-};
+// const isValidPanCardNumber = (pancard_no) => {
+//   const regex = /^([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
+//   return regex.test(pancard_no);
+// };
 
-const validateKycRequest = (body, validations) => {
-  const errors = validations.reduce((acc, { param, type, required }) => {
-    if (required && !body[param]) {
-      acc.push(`Missing required parameter: ${param}`);
-    } else if (body[param] && typeof body[param] !== type) {
-      acc.push(
-        `Invalid type for ${param}. Expected ${type}, got ${typeof body[param]}`
-      );
-    } else if (param === "email_id" && !isValidEmail(body[param])) {
-      acc.push(`Invalid format for ${param}.`);
-    } else if (param === "dob" && !isValidDate(body[param])) {
-      acc.push(`Invalid format for ${param}. Expected YYYY-MM-DD format.`);
-    } else if (
-      param === "aadharcard_no" &&
-      body[param].toString().length !== 12
-    ) {
-      acc.push(`Invalid ${param}. It should be 12 digits.`);
-    } else if (param === "pancard_no" && !isValidPanCardNumber(body[param])) {
-      acc.push(`Invalid ${param}`);
-    } else if (param === "mobile_no" && body[param].toString().length !== 10) {
-      acc.push(`Invalid ${param}. It should be 10 digits.`);
-    } else if (param === "pincode" && body[param].toString().length !== 6) {
-      acc.push(`Invalid ${param}. It should be 6 digits.`);
-    }
-    return acc;
-  }, []);
-  return errors;
-};
+const kycSchema = yup.object({
+  first_name: yup.string().required(),
+  last_name: yup.string().required(),
+  email_id: yup.string().email().required(),
+  mobile_no: yup
+    .number()
+    .strict()
+    .positive("Mobile number must be a positive number")
+    .integer("Mobile number must be an integer")
+    .test(
+      "len",
+      "Mobile number must be exactly 10 digits",
+      (val) => String(val).length === 10
+    )
+    .required(),
+  aadharcard_no: yup
+    .number()
+    .strict()
+    .test(
+      "len",
+      "Aadhar number must be exactly 12 digits",
+      (val) => String(val).length === 12
+    )
+    .required(),
+  pancard_no: yup
+    .string()
+    .matches(/^([A-Z]){5}([0-9]){4}([A-Z]){1}?$/, "Invalid pancard number")
+    .required(),
+  dob: yup
+    .string()
+    .matches(
+      /^\d{4}-\d{2}-\d{2}$/,
+      "Invalid date format it should be yyyy-mm-dd"
+    )
+    .required(),
+  address: yup.string().required(),
+  pincode: yup
+    .number()
+    .strict()
+    .positive("Pincode must be a positive number")
+    .integer("Pincode must be an integer")
+    .test(
+      "len",
+      "Pincode must be exactly 6 digits",
+      (val) => String(val).length === 6
+    )
+    .required(),
+});
 
-const validateRequestOtp = (body, validations) => {
-  const errors = validations.reduce((acc, { param, type, required }) => {
-    if (required && !body[param]) {
-      acc.push(`Missing required parameter: ${param}`);
-    } else if (body[param] && typeof body[param] !== type) {
-      acc.push(
-        `Invalid type for ${param}. Expected ${type}, got ${typeof body[param]}`
-      );
-    } else if (param === "email_id" && !isValidEmail(body[param])) {
-      acc.push(`Invalid format for ${param}.`);
-    } else if (param === "mobile_no" && body[param].toString().length !== 10) {
-      acc.push(`Invalid ${param}. It should be 10 digits.`);
-    }
-    return acc;
-  }, []);
-  return errors;
-};
+const requestOtpSchema = yup.object({
+  email_id: yup.string().email().required(),
+  mobile_no: yup
+    .number()
+    .strict()
+    .positive("Mobile number must be a positive number")
+    .integer("Mobile number must be an integer")
+    .test(
+      "len",
+      "Mobile number must be exactly 10 digits",
+      (val) => String(val).length === 10
+    )
+    .required(),
+});
 
-const validateVerifyOtp = (body, validations) => {
-  const errors = validations.reduce((acc, { param, type, required }) => {
-    if (required && !body[param]) {
-      acc.push(`Missing required parameter: ${param}`);
-    } else if (body[param] && typeof body[param] !== type) {
-      acc.push(
-        `Invalid type for ${param}. Expected ${type}, got ${typeof body[param]}`
-      );
-    } else if (param === "otp" && body[param].toString().length !== 6) {
-      acc.push(`Invalid ${param}. It should be 6 digits.`);
-    } else if (param === "mobile_no" && body[param].toString().length !== 10) {
-      acc.push(`Invalid ${param}. It should be 10 digits.`);
-    }
-    return acc;
-  }, []);
-  return errors;
-};
+const verifyOtpSchema = yup.object({
+  otp: yup
+    .number()
+    .strict()
+    .test(
+      "len",
+      "OTP must be exactly 6 digits",
+      (val) => String(val).length === 10
+    )
+    .required(),
+  mobile_no: yup
+    .number()
+    .strict()
+    .positive("Mobile number must be a positive number")
+    .integer("Mobile number must be an integer")
+    .test(
+      "len",
+      "Mobile number must be exactly 10 digits",
+      (val) => String(val).length === 10
+    )
+    .required(),
+});
 
 module.exports = {
-  isValidDate,
-  validateKycRequest,
-  validateRequestOtp,
-  validateVerifyOtp,
+  kycSchema,
+  requestOtpSchema,
+  verifyOtpSchema,
 };

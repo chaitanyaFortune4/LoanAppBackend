@@ -1,17 +1,6 @@
 [
   {
     "id": 1,
-    "name": "Andaman and Nicobar Islands",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "AN",
-    "type": "Union territory",
-    "latitude": "11.74008670",
-    "longitude": "92.65864010"
-  },
-  {
-    "id": 2,
     "name": "Andhra Pradesh",
     "country_id": 101,
     "country_code": "IN",
@@ -22,7 +11,7 @@
     "longitude": "79.73998750"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "Arunachal Pradesh",
     "country_id": 101,
     "country_code": "IN",
@@ -33,7 +22,7 @@
     "longitude": "94.72775280"
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Assam",
     "country_id": 101,
     "country_code": "IN",
@@ -44,7 +33,7 @@
     "longitude": "92.93757390"
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "Bihar",
     "country_id": 101,
     "country_code": "IN",
@@ -55,7 +44,7 @@
     "longitude": "85.31311940"
   },
   {
-    "id": 6,
+    "id": 5,
     "name": "Chandigarh",
     "country_id": 101,
     "country_code": "IN",
@@ -66,7 +55,7 @@
     "longitude": "76.77941790"
   },
   {
-    "id": 7,
+    "id": 6,
     "name": "Chhattisgarh",
     "country_id": 101,
     "country_code": "IN",
@@ -76,30 +65,9 @@
     "latitude": "21.27865670",
     "longitude": "81.86614420"
   },
+
   {
-    "id": 8,
-    "name": "Dadra and Nagar Haveli and Daman and Diu",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "DH",
-    "type": "Union territory",
-    "latitude": "20.39737360",
-    "longitude": "72.83279910"
-  },
-  {
-    "id": 9,
-    "name": "Delhi",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "DL",
-    "type": "Union territory",
-    "latitude": "28.70405920",
-    "longitude": "77.10249020"
-  },
-  {
-    "id": 10,
+    "id": 7,
     "name": "Goa",
     "country_id": 101,
     "country_code": "IN",
@@ -110,7 +78,7 @@
     "longitude": "74.12399600"
   },
   {
-    "id": 11,
+    "id": 8,
     "name": "Gujarat",
     "country_id": 101,
     "country_code": "IN",
@@ -121,7 +89,7 @@
     "longitude": "71.19238050"
   },
   {
-    "id": 12,
+    "id": 9,
     "name": "Haryana",
     "country_id": 101,
     "country_code": "IN",
@@ -132,7 +100,7 @@
     "longitude": "76.08560100"
   },
   {
-    "id": 13,
+    "id": 10,
     "name": "Himachal Pradesh",
     "country_id": 101,
     "country_code": "IN",
@@ -142,19 +110,9 @@
     "latitude": "31.10482940",
     "longitude": "77.17339010"
   },
+
   {
-    "id": 14,
-    "name": "Jammu and Kashmir",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "JK",
-    "type": "Union territory",
-    "latitude": "33.27783900",
-    "longitude": "75.34121790"
-  },
-  {
-    "id": 15,
+    "id": 11,
     "name": "Jharkhand",
     "country_id": 101,
     "country_code": "IN",
@@ -165,7 +123,7 @@
     "longitude": "85.27993540"
   },
   {
-    "id": 16,
+    "id": 12,
     "name": "Karnataka",
     "country_id": 101,
     "country_code": "IN",
@@ -176,7 +134,7 @@
     "longitude": "75.71388840"
   },
   {
-    "id": 17,
+    "id": 13,
     "name": "Kerala",
     "country_id": 101,
     "country_code": "IN",
@@ -186,30 +144,9 @@
     "latitude": "10.85051590",
     "longitude": "76.27108330"
   },
+
   {
-    "id": 18,
-    "name": "Ladakh",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "LA",
-    "type": "Union territory",
-    "latitude": "34.22684750",
-    "longitude": "77.56194190"
-  },
-  {
-    "id": 19,
-    "name": "Lakshadweep",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "LD",
-    "type": "Union territory",
-    "latitude": "10.32802650",
-    "longitude": "72.78463360"
-  },
-  {
-    "id": 20,
+    "id": 14,
     "name": "Madhya Pradesh",
     "country_id": 101,
     "country_code": "IN",
@@ -220,7 +157,7 @@
     "longitude": "78.65689420"
   },
   {
-    "id": 21,
+    "id": 15,
     "name": "Maharashtra",
     "country_id": 101,
     "country_code": "IN",
@@ -231,7 +168,7 @@
     "longitude": "75.71388840"
   },
   {
-    "id": 22,
+    "id": 16,
     "name": "Manipur",
     "country_id": 101,
     "country_code": "IN",
@@ -242,7 +179,7 @@
     "longitude": "93.90626880"
   },
   {
-    "id": 23,
+    "id": 17,
     "name": "Meghalaya",
     "country_id": 101,
     "country_code": "IN",
@@ -253,7 +190,7 @@
     "longitude": "91.36621600"
   },
   {
-    "id": 24,
+    "id": 18,
     "name": "Mizoram",
     "country_id": 101,
     "country_code": "IN",
@@ -264,7 +201,7 @@
     "longitude": "92.93757390"
   },
   {
-    "id": 25,
+    "id": 19,
     "name": "Nagaland",
     "country_id": 101,
     "country_code": "IN",
@@ -275,7 +212,7 @@
     "longitude": "94.56244260"
   },
   {
-    "id": 26,
+    "id": 20,
     "name": "Odisha",
     "country_id": 101,
     "country_code": "IN",
@@ -285,19 +222,9 @@
     "latitude": "20.95166580",
     "longitude": "85.09852360"
   },
+
   {
-    "id": 27,
-    "name": "Puducherry",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "PY",
-    "type": "Union territory",
-    "latitude": "11.94159150",
-    "longitude": "79.80831330"
-  },
-  {
-    "id": 28,
+    "id": 21,
     "name": "Punjab",
     "country_id": 101,
     "country_code": "IN",
@@ -308,7 +235,7 @@
     "longitude": "75.34121790"
   },
   {
-    "id": 29,
+    "id": 22,
     "name": "Rajasthan",
     "country_id": 101,
     "country_code": "IN",
@@ -319,7 +246,7 @@
     "longitude": "74.21793260"
   },
   {
-    "id": 30,
+    "id": 23,
     "name": "Sikkim",
     "country_id": 101,
     "country_code": "IN",
@@ -330,7 +257,7 @@
     "longitude": "88.51221780"
   },
   {
-    "id": 31,
+    "id": 24,
     "name": "Tamil Nadu",
     "country_id": 101,
     "country_code": "IN",
@@ -341,7 +268,7 @@
     "longitude": "78.65689420"
   },
   {
-    "id": 32,
+    "id": 25,
     "name": "Telangana",
     "country_id": 101,
     "country_code": "IN",
@@ -352,7 +279,7 @@
     "longitude": "79.01929970"
   },
   {
-    "id": 33,
+    "id": 26,
     "name": "Tripura",
     "country_id": 101,
     "country_code": "IN",
@@ -363,7 +290,7 @@
     "longitude": "91.98815270"
   },
   {
-    "id": 34,
+    "id": 27,
     "name": "Uttar Pradesh",
     "country_id": 101,
     "country_code": "IN",
@@ -374,7 +301,7 @@
     "longitude": "80.94615920"
   },
   {
-    "id": 35,
+    "id": 28,
     "name": "Uttarakhand",
     "country_id": 101,
     "country_code": "IN",
@@ -383,16 +310,5 @@
     "type": "state",
     "latitude": "30.06675300",
     "longitude": "79.01929970"
-  },
-  {
-    "id": 36,
-    "name": "West Bengal",
-    "country_id": 101,
-    "country_code": "IN",
-    "country_name": "India",
-    "state_code": "WB",
-    "type": "state",
-    "latitude": "22.98675690",
-    "longitude": "87.85497550"
   }
 ]
