@@ -1,10 +1,11 @@
 const { pancards } = require("../mockJsonData/pancard");
+const { sendEmailLeadNo } = require("../utils/emailService");
 
 const user_details = async (req, res) => {
     try {
         const connection = req.app.get("mysqlConnection");
         const { first_name, last_name, email_id, pancard_no, mobile_no, dob } = req.body;
-        
+
         const filteredData = pancards.find(
             (item) => item.pancard_number === pancard_no
         );
@@ -19,9 +20,12 @@ const user_details = async (req, res) => {
             lead_no: Lead_no,
             lead_status: 'Started',
             user_id: result[0].insertId,
-            
+
         }
-        await connection.query('INSERT INTO loan_lead SET ?', loanBody)
+        let result1 = await connection.query('INSERT INTO loan_lead SET ?', loanBody)
+        if (result1[0].affectedRows === 1) {
+            await sendEmailLeadNo(email_id, Lead_no)
+        }
         res.status(201).json({
             success: true,
             message: "User Data validated and saved successfully",
