@@ -1,10 +1,107 @@
 [
   {
     "id": 1,
-    "name": "ICICI Bank",
-    "min_credit_score": "700",
-    "min_amount": "500000",
-    "interest_rate": "12",
-    "type": "PSB"
+    "name": "ICICI BANK",
+    "min_credit_score": 700,
+    "min_amount": 550000,
+    "roi": 12
+  },
+  {
+    "id": 2,
+    "name": "HDFC BANK",
+    "min_credit_score": 700,
+    "min_amount": 600000,
+    "roi": 13
+  },
+  {
+    "id": 3,
+    "name": "KOTAK BANK",
+    "min_credit_score": 700,
+    "min_amount": 450000,
+    "roi": 11
+  },
+  {
+    "id": 4,
+    "name": "YES BANK",
+    "min_credit_score": 700,
+    "min_amount": 400000,
+    "roi": 10
+  },
+  {
+    "id": 5,
+    "name": "RBL BANK",
+    "min_credit_score": 700,
+    "min_amount": 450000,
+    "roi": 12
+  },
+  {
+    "id": 6,
+    "name": "SBI BANK",
+    "min_credit_score": 600,
+    "min_amount": 300000,
+    "roi": 15
+  },
+  {
+    "id": 7,
+    "name": "UCO BANK",
+    "min_credit_score": 600,
+    "min_amount": 250000,
+    "roi": 16
+  },
+  {
+    "id": 8,
+    "name": "Indian Bank",
+    "min_credit_score": 600,
+    "min_amount": 250000,
+    "roi": 17
+  },
+  {
+    "id": 9,
+    "name": "Bank of India",
+    "min_credit_score": 600,
+    "min_amount": 150000,
+    "roi": 12
+  },
+  {
+    "id": 10,
+    "name": "Central Bank of India",
+    "min_credit_score": 600,
+    "min_amount": 150000,
+    "roi": 15
+  },
+  {
+    "id": 11,
+    "name": "Bandhan Financial Services Limited",
+    "min_credit_score": 0,
+    "min_amount": 150000,
+    "roi": 19
+  },
+  {
+    "id": 12,
+    "name": "Annapurna Microfinance Pvt Ltd.",
+    "min_credit_score": 0,
+    "min_amount": 250000,
+    "roi": 20
+  },
+  {
+    "id": 13,
+    "name": "Asirvad Microfinance Limited.",
+    "min_credit_score": 0,
+    "min_amount": 250000,
+    "roi": 25
+  },
+  {
+    "id": 14,
+    "name": "Mutual Trust Microfinance Bank.",
+    "min_credit_score": 0,
+    "min_amount": 350000,
+    "roi": 28
+  },
+  {
+    "id": 15,
+    "name": "AB Microfinance Bank.",
+    "min_credit_score": 0,
+    "min_amount": 245000,
+    "roi": 30
   }
 ]
