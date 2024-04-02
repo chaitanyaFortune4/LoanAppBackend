@@ -51,7 +51,6 @@ const verifyOtp = async (req, res) => {
         //     `SELECT * FROM otp_verification where mobile_no = ${mobile_no}`
         // );
         let data = await client.get(mobile_no)
-        console.log("sdata", data);
         if (!data) {
             return res.status(200).json({
                 success: false,
