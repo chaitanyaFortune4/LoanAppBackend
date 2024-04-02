@@ -404,12 +404,12 @@ const sendEmailOtp = async (otp_params) => {
     }
 };
 
-const sendEmailLeadNo = async (email, lead_no) => {
+const sendEmailLeadNo = async (email, lead_no, Data) => {
     try {
         const msg = {
             to: email,
             from: "testdeepali775@gmail.com",
-            subject: "Loan Application Lead Gerarated",
+            subject: `Loan Application Lead ${Data ? Data : "Gerarated"}`,
             html: `<!DOCTYPE html
             PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns:v="urn:schemas-microsoft-com:vml">
