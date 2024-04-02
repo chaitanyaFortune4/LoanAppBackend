@@ -5,6 +5,7 @@ const connectDB = require("./config/db_config");
 const dotenv = require("dotenv");
 dotenv.config();
 const redisClient = require("./config/redis_config");
+const fs = require("fs");
 
 // Create an instance of Express
 const app = express();

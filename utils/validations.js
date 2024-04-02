@@ -21,7 +21,6 @@ const kycSchema = yup.object({
   email_id: yup.string().email().required(),
   mobile_no: yup
     .number()
-    .strict()
     .positive("Mobile number must be a positive number")
     .integer("Mobile number must be an integer")
     .test(
@@ -32,7 +31,6 @@ const kycSchema = yup.object({
     .required(),
   aadharcard_no: yup
     .number()
-    .strict()
     .test(
       "len",
       "Aadhar number must be exactly 12 digits",
@@ -51,9 +49,11 @@ const kycSchema = yup.object({
     )
     .required(),
   address: yup.string().required(),
+  address2: yup.string(),
+  state: yup.string().required(),
+  city: yup.string().required(),
   pincode: yup
     .number()
-    .strict()
     .positive("Pincode must be a positive number")
     .integer("Pincode must be an integer")
     .test(
@@ -68,7 +68,6 @@ const requestOtpSchema = yup.object({
   email_id: yup.string().email().required(),
   mobile_no: yup
     .number()
-    .strict()
     .positive("Mobile number must be a positive number")
     .integer("Mobile number must be an integer")
     .test(
@@ -82,7 +81,6 @@ const requestOtpSchema = yup.object({
 const verifyOtpSchema = yup.object({
   otp: yup
     .number()
-    .strict()
     .test(
       "len",
       "OTP must be exactly 6 digits",
@@ -91,7 +89,6 @@ const verifyOtpSchema = yup.object({
     .required(),
   mobile_no: yup
     .number()
-    .strict()
     .positive("Mobile number must be a positive number")
     .integer("Mobile number must be an integer")
     .test(
@@ -109,7 +106,6 @@ const pancardSchema = yup.object({
     .required(),
   mobile_no: yup
     .number()
-    .strict()
     .positive("Mobile number must be a positive number")
     .integer("Mobile number must be an integer")
     .test(

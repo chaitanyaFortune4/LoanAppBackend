@@ -5,8 +5,18 @@ const { sendEmailLeadNo } = require("../utils/emailService");
 const user_details = async (req, res) => {
   try {
     const connection = req.app.get("mysqlConnection");
-    const { first_name, last_name, email_id, pancard_no, mobile_no, dob } =
-      req.body;
+    const {
+      first_name,
+      last_name,
+      email_id,
+      pancard_no,
+      mobile_no,
+      dob,
+      address,
+      address2,
+      state,
+      city,
+    } = req.body;
 
     const filteredData = pancards.find(
       (item) => item.pancard_number === pancard_no
