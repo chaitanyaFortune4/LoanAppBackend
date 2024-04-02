@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const validation = require("../middlewares/validation_middleware");
+const stateCityController = require("../controllers/state_city_controller");
 const kycController = require("../controllers/kyc_controller");
 const otpController = require("../controllers/otp_controller");
 const userDetals = require("../controllers/user_controller");
 const creditScore = require("../controllers/creditScore_controller");
+
 const {
   kycSchema,
   requestOtpSchema,
@@ -16,6 +18,7 @@ const {
 // router
 //   .route("/kyc-details")
 //   .post(validation(kycSchema), kycController.kycVerification);
+router.route("/state-city").post(stateCityController.getStateCity);
 router
   .route("/request-otp")
   .post(validation(requestOtpSchema), otpController.requestOtp);
