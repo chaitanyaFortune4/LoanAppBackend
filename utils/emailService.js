@@ -5,7 +5,7 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: "vikas.g@fortune4.in",
+        user: "testdeepali775@gmail.com",
         pass: process.env.SMTP_PASS,
     },
     tls: {
@@ -17,7 +17,7 @@ const sendEmailOtp = async (otp_params) => {
     try {
         const msg = {
             to: otp_params.email_address,
-            from: "vikas.g@fortune4.in",
+            from: "testdeepali775@gmail.com",
             subject: "mobile verification",
             html: `<!DOCTYPE html
             PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -257,11 +257,7 @@ const sendEmailOtp = async (otp_params) => {
                                         <td align="center"
                                             style="color: #343434; font-size: 24px; font-family: Quicksand, Calibri, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;"
                                             class="main-header">
-        
-        
-                                            <div style="line-height: 35px">NRI Account Opening <br>
-                                                <span style="color: #4759bb;">Verification Code</span>
-        
+                                            <div style="line-height: 35px">Mobile OTP Varification
                                             </div>
                                         </td>
                                     </tr>
@@ -412,7 +408,7 @@ const sendEmailLeadNo = async (email, lead_no) => {
     try {
         const msg = {
             to: email,
-            from: "vikas.g@fortune4.in",
+            from: "testdeepali775@gmail.com",
             subject: "Loan Application Lead Gerarated",
             html: `<!DOCTYPE html
             PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
