@@ -49,6 +49,8 @@ const verifyOtp = async (req, res) => {
       `SELECT * FROM otp_verification where mobile_no = ${mobile_no}`
     );
 
+    console.log("OTP", otp, sql[0][0].otp);
+
     if (otp === sql[0][0].otp) {
       let params = {
         mobile_no: mobile_no,

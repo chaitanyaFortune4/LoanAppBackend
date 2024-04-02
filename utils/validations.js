@@ -84,7 +84,7 @@ const verifyOtpSchema = yup.object({
     .test(
       "len",
       "OTP must be exactly 6 digits",
-      (val) => String(val).length === 10
+      (val) => String(val).length === 6
     )
     .required(),
   mobile_no: yup
