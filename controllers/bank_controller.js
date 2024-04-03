@@ -3,12 +3,12 @@ const bankData = require("../mockJsonData/banks.json");
 
 const bank_details = async (req, res) => {
   try {
-    const { credit_score, loan_amount, tenure } = req.body;
+    const { credit_score, loan_amount, tenure_in_months } = req.body;
 
     const bankOffers = await suggestBanks(
       Number(credit_score),
       Number(loan_amount),
-      Number(tenure),
+      Number(tenure_in_months),
       bankData
     );
 

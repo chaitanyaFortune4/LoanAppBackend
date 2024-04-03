@@ -1,10 +1,9 @@
 const suggestBanks = async (
   userCreditScore,
   requiredLoanAmount,
-  repaymentYears,
+  repaymentMonths,
   bankData
 ) => {
-  console.log(userCreditScore, requiredLoanAmount, repaymentYears);
   const suggestedBanks = [];
 
   bankData.forEach((bank) => {
@@ -16,12 +15,12 @@ const suggestBanks = async (
     if (
       userCreditScore >= minCreditScore &&
       requiredLoanAmount >= minAmount &&
-      repaymentYears >= 1 // Assuming repayment period should be at least 1 year
+      repaymentMonths >= 1 // Assuming repayment period should be at least 1 month
     ) {
       // Calculate interest amount based on interest rate and loan amount
       const interestRate = parseFloat(bank.roi) / 100; // Convert interest rate to decimal
       const monthlyInterestRate = interestRate / 12; // Monthly interest rate
-      const numberOfPayments = repaymentYears * 12; // Total number of payments
+      const numberOfPayments = repaymentMonths; // Total number of payments is now the repayment period in months
 
       // Calculate monthly payment using the formula for loan amortization
       const monthlyPayment =
@@ -37,7 +36,7 @@ const suggestBanks = async (
 
       suggestedBanks.push({
         name: bank.name,
-        offeredLoanAmount: totalLoanAmount.toFixed(2),
+        totalLoanAmount: totalLoanAmount.toFixed(2),
         interestRate: parseFloat(bank.roi),
         monthlyPayment: monthlyPayment.toFixed(2), // Round to 2 decimal places
         monthlyInterest: monthlyInterest.toFixed(2), // Round to 2 decimal places

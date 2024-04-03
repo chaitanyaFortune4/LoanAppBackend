@@ -127,10 +127,29 @@ const getUserDetailsSchema = yup.object({
   lead_no: yup.string().required(),
 });
 
+const getLoanEligibleSchema = yup.object({
+  credit_score: yup
+    .number()
+    .positive("Credit score must be a positive number")
+    .integer("Credit score must be an integer")
+    .required(),
+  loan_amount: yup
+    .number()
+    .positive("Loan amount must be a positive number")
+    .integer("Credit score must be an integer")
+    .required(),
+  tenure_in_months: yup
+    .number()
+    .positive("tenure must be a positive number")
+    .integer("Credit score must be an integer")
+    .required(),
+});
+
 module.exports = {
   kycSchema,
   requestOtpSchema,
   verifyOtpSchema,
   pancardSchema,
   getUserDetailsSchema,
+  getLoanEligibleSchema,
 };
