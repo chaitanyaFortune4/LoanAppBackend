@@ -27,13 +27,13 @@ const user_details = async (req, res) => {
         success: false,
         message: "Invalid Pancard, verfication failed",
       });
-    } else if (authBridgeResp.NameOnTheCard !== nameOnCard) {
+    } else if (authBridgeResp.nameOnTheCard !== nameOnCard) {
       return res.status(400).json({
         success: false,
         message:
           "Invalid Pancard details, given name did not match with name on Pancard",
       });
-    } else if (authBridgeResp.STATUS !== "Active") {
+    } else if (authBridgeResp.msg.status !== "Active") {
       return res.status(400).json({
         success: false,
         message: "Invalid Pancard, given pancard is not Active",
