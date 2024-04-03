@@ -1,3 +1,5 @@
+const { pancards } = require("../mockJsonData/pancard");
+
 // const authBridgeSuccess = {
 //   msg: {
 //     LastUpdate: "",
@@ -18,7 +20,7 @@
 const checkAuthBridge = (panNumber) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const matchedPAN = authBridgeDatabase.find(
+      const matchedPAN = pancards.find(
         (entry) => entry.msg.PanNumber === panNumber
       );
       if (matchedPAN) {
