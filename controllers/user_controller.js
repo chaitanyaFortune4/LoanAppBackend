@@ -1,8 +1,6 @@
 const client = require("../config/redis_config");
-const {
-  checkAuthBridge,
-} = require("../mockJsonData/authBridgePancardResponse");
-const { pancards } = require("../mockJsonData/pancard");
+const { checkAuthBridge } = require("../utils/authBridgeService");
+const { leadNumberGenerator } = require("../utils/common");
 const { sendEmailLeadNo } = require("../utils/emailService");
 
 const user_details = async (req, res) => {
@@ -21,22 +19,6 @@ const user_details = async (req, res) => {
       state,
       city,
     } = req.body;
-
-    // const authBridgeResp = await axios.post("authBridgeUrl", {
-    //   docNumber: pancard_no,
-    // });
-    // if (
-    //   authBridgeResp.status !== 1 ||
-    //   authBridgeResp.msg.NameOnTheCard !== `${first_name}${last_name}` ||
-    //   authBridgeResp.msg.STATUS !== "Active"
-    // ) {
-    //   return res
-    //     .status(400)
-    //     .json({
-    //       success: false,
-    //       message: "Invalid Pancard, verfication failed",
-    //     });
-    // }
 
     const authBridgeResp = await checkAuthBridge({ docNumber: pancard_no });
 
@@ -83,10 +65,10 @@ const user_details = async (req, res) => {
       "INSERT INTO user_details SET ?",
       req.body
     );
-    let Lead_no = "LOAN" + Math.floor(100000 + Math.random() * 900000);
+    let Lead_no = leadNumberGenerator();
     let loanBody = {
       lead_no: Lead_no,
-      lead_status: "Started",
+      lead_status: "Stage1",
       user_id: result[0].insertId,
     };
     let result1 = await connection.query(
