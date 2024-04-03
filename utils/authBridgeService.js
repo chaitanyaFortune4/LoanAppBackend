@@ -37,7 +37,6 @@ const checkAuthBridge = async (panNumber) => {
       },
     };
   } else {
-    console.log("ARR");
     return { msg: "Record not found", status: 9 };
   }
 };
