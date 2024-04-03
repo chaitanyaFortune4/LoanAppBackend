@@ -16,6 +16,7 @@ const {
   getUserDetailsSchema,
   getLoanEligibleSchema,
 } = require("../utils/validations");
+const encryptionMiddleWare = require("../middlewares/encryption_middleware");
 
 // router
 //   .route("/kyc-details")
@@ -29,7 +30,7 @@ router
   .post(validation(verifyOtpSchema), otpController.verifyOtp);
 router
   .route("/kyc-details")
-  .post(validation(kycSchema), userDetals.user_details);
+  .post(validation(kycSchema), encryptionMiddleWare, userDetals.user_details);
 
 router
   .route("/get-user-details")
