@@ -7,7 +7,7 @@ const pancards = [
     date_of_birth: "1995-01-05",
     status: "Active",
     type: "Individual",
-    credit_score: 700,
+    credit_score: "700",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const pancards = [
     date_of_birth: "2000-02-06",
     status: "Active",
     type: "Individual",
-    credit_score: 600,
+    credit_score: "600",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const pancards = [
     date_of_birth: "2005-03-07",
     status: "Active",
     type: "Individual",
-    credit_score: 500,
+    credit_score: "500",
   },
 ];
 
