@@ -22,6 +22,8 @@ const user_details = async (req, res) => {
 
     const authBridgeResp = await checkAuthBridge({ docNumber: pancard_no });
 
+    console.log("AR", authBridgeResp);
+
     if (authBridgeResp.status !== 1) {
       return res.status(400).json({
         success: false,

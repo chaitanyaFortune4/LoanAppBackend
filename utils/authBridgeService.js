@@ -18,30 +18,27 @@ const { pancards } = require("../mockJsonData/pancard");
 // const authBridgeFailed = { msg: "Record not found", status: 9 };
 
 const checkAuthBridge = (panNumber) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const matchedPAN = pancards.find(
-        (entry) => entry.msg.PanNumber === panNumber
-      );
-      if (matchedPAN) {
-        resolve({
-          status: 1,
-          msg: {
-            LastUpdate: "",
-            name: matchedPAN.name,
-            nameOnTheCard: matchedPAN.name,
-            panHolderStatusType: matchedPAN.type,
-            panNumber: matchedPAN.pancard_number,
-            status: matchedPAN.status,
-            statusDescription: matchedPAN.statusDescription,
-            source_id: 2,
-          },
-        });
-      } else {
-        reject({ msg: "Record not found", status: 9 });
-      }
-    }, 1000);
-  });
+  const matchedPAN = pancards.find(
+    (entry) => entry.pancard_number === panNumber.pancard_no
+  );
+  if (matchedPAN) {
+    return {
+      status: 1,
+      msg: {
+        LastUpdate: "",
+        name: matchedPAN.name,
+        nameOnTheCard: matchedPAN.name,
+        panHolderStatusType: matchedPAN.type,
+        panNumber: matchedPAN.pancard_number,
+        status: matchedPAN.status,
+        statusDescription: matchedPAN.statusDescription,
+        source_id: 2,
+      },
+    };
+  } else {
+    console.log("ARR");
+    return { msg: "Record not found", status: 9 };
+  }
 };
 
 module.exports = {

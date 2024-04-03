@@ -41,6 +41,7 @@ const kycSchema = yup.object({
     .string()
     .matches(/^([A-Z]){5}([0-9]){4}([A-Z]){1}?$/, "Invalid pancard number")
     .required(),
+  nameOnCard: yup.string().required(),
   dob: yup
     .string()
     .matches(
