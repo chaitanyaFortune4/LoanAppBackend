@@ -29,6 +29,26 @@ const pancards = [
     type: "Individual",
     credit_score: "500",
   },
+  {
+    id:4,
+    pancard_number:"CKCPN3706Q",
+    name:"Chennuri sagar narsyha",
+    father_name:"Chennuri narsyha",
+    date_of_birth:"1999-04-23",
+    status:"Active",
+    type:"Indivisual",
+    credit_score:"750"
+  },
+  {
+    id:5,
+    pancard_number:"CXIPP6483M",
+    name:"ANAGHA Rohit chindarkar",
+    father_name:"Rajaram PAWASKAR",
+    date_of_birth:"1996-03-09",
+    status:"Active",
+    type:"Indivisual",
+    credit_score:"650"
+  }
 ];
 
 module.exports = {
