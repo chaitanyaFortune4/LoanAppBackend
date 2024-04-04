@@ -72,36 +72,71 @@
   {
     "id": 11,
     "name": "Bandhan Financial Services Limited",
-    "min_credit_score": 0,
+    "min_credit_score": 400,
     "min_amount": 150000,
     "roi": 19
   },
   {
     "id": 12,
     "name": "Annapurna Microfinance Pvt Ltd.",
-    "min_credit_score": 0,
+    "min_credit_score": 400,
     "min_amount": 250000,
-    "roi": 20
+    "roi": 26
   },
   {
     "id": 13,
     "name": "Asirvad Microfinance Limited.",
-    "min_credit_score": 0,
+    "min_credit_score": 400,
     "min_amount": 250000,
-    "roi": 25
+    "roi": 22
   },
   {
     "id": 14,
     "name": "Mutual Trust Microfinance Bank.",
-    "min_credit_score": 0,
+    "min_credit_score": 400,
     "min_amount": 350000,
-    "roi": 28
+    "roi": 20
   },
   {
     "id": 15,
     "name": "AB Microfinance Bank.",
-    "min_credit_score": 0,
+    "min_credit_score": 400,
     "min_amount": 245000,
-    "roi": 30
+    "roi": 24
+  },
+  {
+    "id": 16,
+    "name": "Aditya Birla Capital",
+    "min_credit_score": 0,
+    "min_amount": 25000,
+    "roi": 15
+  },
+  {
+    "id": 17,
+    "name": "IIFL Finance",
+    "min_credit_score": 0,
+    "min_amount": 145000,
+    "roi": 25
+  },
+  {
+    "id": 18,
+    "name": "HDB Financial Services",
+    "min_credit_score": 0,
+    "min_amount": 145000,
+    "roi": 19
+  },
+  {
+    "id": 19,
+    "name": "Tata Capital",
+    "min_credit_score": 0,
+    "min_amount": 45000,
+    "roi": 34
+  },
+  {
+    "id": 20,
+    "name": "Mahindra Finance",
+    "min_credit_score": 0,
+    "min_amount": 20000,
+    "roi": 32
   }
 ]
