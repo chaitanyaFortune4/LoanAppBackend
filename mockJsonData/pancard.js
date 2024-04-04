@@ -42,7 +42,7 @@ const pancards = [
   {
     id:5,
     pancard_number:"CXIPP6483M",
-    name:"ANAGHA Rohit chindarkar",
+    name:"Anagha Rohit Chindarkar",
     father_name:"Rajaram PAWASKAR",
     date_of_birth:"1996-03-09",
     status:"Active",
