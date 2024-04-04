@@ -20,7 +20,7 @@ const user_details = async (req, res) => {
       city,
     } = req.body;
 
-    const authBridgeResp = await checkAuthBridge({ docNumber: pancard_no });
+    const authBridgeResp = await checkAuthBridge(pancard_no);
 
     if (authBridgeResp.status !== 1) {
       leadUserGenerator(connection, req.body);
@@ -91,7 +91,7 @@ const user_details = async (req, res) => {
       success: true,
       message:
         "Lead generated successfully, Please check your email for Lead Number",
-      ...req.body,
+      data: { ...req.body },
     });
   } catch (error) {
     console.log("user Error", error);

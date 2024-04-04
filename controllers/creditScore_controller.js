@@ -6,6 +6,10 @@ const creditScore = async (req, res) => {
       (item) => item.pancard_number === req.body.pancard_no
     );
     if (data) {
+      await connection.query(
+        `UPDATE user_details SET credit_score = ${data.credit_score} where pancard_no = ${req.body.pancard_no}`
+      );
+
       res.status(200).json({
         success: true,
         message: "Credit score fetched successfully",

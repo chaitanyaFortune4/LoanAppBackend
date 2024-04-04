@@ -1,4 +1,5 @@
 const { pancards } = require("../mockJsonData/pancard");
+const { decrypt } = require("./common");
 
 // const authBridgeSuccess = {
 //   msg: {
@@ -17,9 +18,10 @@ const { pancards } = require("../mockJsonData/pancard");
 
 // const authBridgeFailed = { msg: "Record not found", status: 9 };
 
-const checkAuthBridge = async (panNumber) => {
+const checkAuthBridge = async (pancard_no) => {
+  const panNumber = decrypt(pancard_no);
   const matchedPAN = pancards.find(
-    (entry) => entry.pancard_number === panNumber.docNumber
+    (entry) => entry.pancard_number === pancard_no
   );
 
   if (matchedPAN) {
