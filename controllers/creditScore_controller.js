@@ -8,10 +8,11 @@ const creditScore = async (req, res) => {
     if (data) {
       res.status(200).json({
         success: true,
+        message: "Credit score fetched successfully",
         data,
       });
     } else {
-      res.status(400).json({
+      res.status(200).json({
         success: false,
         message: "Invalid Pancard number",
       });
@@ -19,7 +20,7 @@ const creditScore = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "internal server error",
+      message: "Internal server error",
     });
   }
 };

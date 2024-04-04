@@ -10,7 +10,7 @@ const getStateCity = async (req, res) => {
       const stateCities = citiesData.filter(
         (city) => city.stateCode === stateCode
       );
-      return res.json({
+      return res.status(200).json({
         success: true,
         message: "Cities found",
         cities: stateCities,
@@ -18,7 +18,7 @@ const getStateCity = async (req, res) => {
     }
 
     // If no stateCode provided, return all states
-    return res.json({
+    return res.satus(200).json({
       success: true,
       message: "States found",
       states: statesData,

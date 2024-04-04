@@ -20,38 +20,25 @@ const user_details = async (req, res) => {
       city,
     } = req.body;
 
-    // const intitialResult = await connection.query(
-    //   "INSERT INTO user_details SET ?",
-    //   req.body
-    // );
-
-    // let initia_lead = leadNumberGenerator();
-    // let initialLeadBody = {
-    //   lead_no: initia_lead,
-    //   lead_status: "Enquiry",
-    //   user_id: intitialResult[0].insertId,
-    // };
-    // await connection.query("INSERT INTO loan_lead SET ?", initialLeadBody);
-
     const authBridgeResp = await checkAuthBridge({ docNumber: pancard_no });
 
     if (authBridgeResp.status !== 1) {
       leadUserGenerator(connection, req.body);
 
-      return res.status(400).json({
+      return res.status(200).json({
         success: false,
         message: "Invalid Pancard, verfication failed",
       });
     } else if (authBridgeResp.msg.nameOnTheCard !== nameOnCard) {
       leadUserGenerator(connection, req.body);
-      return res.status(400).json({
+      return res.status(200).json({
         success: false,
         message:
           "Invalid Pancard details, given name did not match with name on Pancard",
       });
     } else if (authBridgeResp.msg.status !== "Active") {
       leadUserGenerator(connection, req.body);
-      return res.status(400).json({
+      return res.status(200).json({
         success: false,
         message: "Invalid Pancard, given pancard is not Active",
       });
@@ -135,7 +122,7 @@ const getUserDetails = async (req, res) => {
     );
 
     if (sql[0].length < 1) {
-      return res.status(400).json({
+      return res.status(200).json({
         success: false,
         message: "User details not found",
       });

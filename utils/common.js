@@ -18,21 +18,40 @@ const leadUserGenerator = async (connection, body) => {
 
 // Encryption and decryption functions
 const encrypt = (text, key) => {
+  // const iv = crypto.randomBytes(16); // Generate a random IV (Initialization Vector)
+  // const cipher = crypto.createCipheriv("aes-128-cbc", key, iv);
+  // let encrypted = cipher.update(text, "utf8", "hex");
+  // encrypted += cipher.final("hex");
+  // return { iv: iv.toString("hex"), encryptedData: encrypted };
+
   const iv = crypto.randomBytes(16); // Generate a random IV (Initialization Vector)
   const cipher = crypto.createCipheriv("aes-128-cbc", key, iv);
   let encrypted = cipher.update(text, "utf8", "hex");
   encrypted += cipher.final("hex");
-  return { iv: iv.toString("hex"), encryptedData: encrypted };
+
+  // Concatenate IV with encrypted data
+  const encryptedDataWithIV = iv.toString("hex") + encrypted;
+
+  return encryptedDataWithIV;
 };
 
-const decrypt = (encryptedData, key) => {
-  const decipher = crypto.createDecipheriv(
-    "aes-128-cbc",
-    key,
-    Buffer.from(iv, "hex")
-  );
+const decrypt = (encryptedDataWithIV, key) => {
+  // const decipher = crypto.createDecipheriv(
+  //   "aes-128-cbc",
+  //   key,
+  //   Buffer.from(iv, "hex")
+  // );
+  // let decrypted = decipher.update(encryptedData, "hex", "utf8");
+  // decrypted += decipher.final("utf8");
+  // return decrypted;
+
+  const iv = Buffer.from(encryptedDataWithIV.slice(0, 32), "hex");
+  const encryptedData = encryptedDataWithIV.slice(32); // Extract encrypted data
+
+  const decipher = crypto.createDecipheriv("aes-128-cbc", key, iv);
   let decrypted = decipher.update(encryptedData, "hex", "utf8");
   decrypted += decipher.final("utf8");
+
   return decrypted;
 };
 

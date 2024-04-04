@@ -26,7 +26,7 @@ const requestOtp = async (req, res) => {
       // await connection.query(insert_otp_query, userdata);
       await client.set(`${mobile_no}`, JSON.stringify(otp), { EX: 120 });
     } else {
-      return res.status(500).json({
+      return res.status(200).json({
         success: false,
         message: "Sending Otp on email failed",
       });
