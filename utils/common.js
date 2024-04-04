@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 
 const leadNumberGenerator = () => {
-  return "LOAN" + Math.floor(100000 + Math.random() * 900000);
+  return "LOAN" + Math.floor(100000 + Math.random() * 900000) + new Date().getSeconds()
 };
 
 const leadUserGenerator = async (connection, body) => {

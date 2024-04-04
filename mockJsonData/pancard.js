@@ -32,7 +32,7 @@ const pancards = [
   {
     id:4,
     pancard_number:"CKCPN3706Q",
-    name:"Chennuri sagar narsyha",
+    name:"Chennuri Sagar Narsyha",
     father_name:"Chennuri narsyha",
     date_of_birth:"1999-04-23",
     status:"Active",
