@@ -5,6 +5,8 @@ const encryptionMiddleWare = async (req, res, next) => {
     const { pancard_no, aadharcard_no } = req.body;
 
     if (pancard_no) {
+      // const encryptedBody = encrypt(JSON.stringify(req.body));
+      // const decryptedBody = decrypt(encryptedBody);
       //Encryption
       // const encryptedPan = encrypt(pancard_no);
       // console.log("EP", encryptedPan);

@@ -18,6 +18,19 @@ const { decrypt } = require("./common");
 
 // const authBridgeFailed = { msg: "Record not found", status: 9 };
 
+// V2 SUCCESS RESponse {
+//   "msg": {
+//     "aadhaarSeedingStatus": "Operative PAN",
+//     "dateOfBirth": "MATCHING",
+//     "name": "MATCHING",
+//     "panNumber": "AAAPA1334A",
+//     "panStatus": "EXISTING AND VALID"
+//   },
+//   "status": 1,
+//   "transId": "Alpha-123",
+//   "tsTransId": "TS-YLJC-80812216"
+// }
+
 const checkAuthBridge = async (pancard_no) => {
   // const panNumber = decrypt(pancard_no);
   const matchedPAN = pancards.find(
@@ -30,6 +43,7 @@ const checkAuthBridge = async (pancard_no) => {
       msg: {
         LastUpdate: "",
         name: matchedPAN.name,
+        dob: matchedPAN.date_of_birth,
         nameOnTheCard: matchedPAN.name,
         panHolderStatusType: matchedPAN.type,
         panNumber: matchedPAN.pancard_number,

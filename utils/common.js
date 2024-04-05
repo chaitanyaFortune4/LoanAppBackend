@@ -31,7 +31,6 @@ const encrypt = (text, key = process.env.SECRET_KEY) => {
 };
 
 const decrypt = (encryptedDataWithIV, key = process.env.SECRET_KEY) => {
-  console.log(encryptedDataWithIV, key);
   const iv = Buffer.from(encryptedDataWithIV.slice(0, 32), "hex");
   const encryptedData = encryptedDataWithIV.slice(32); // Extract encrypted data
   const decipher = crypto.createDecipheriv("aes-128-cbc", key, iv);

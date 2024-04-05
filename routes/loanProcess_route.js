@@ -7,6 +7,7 @@ const otpController = require("../controllers/otp_controller");
 const userDetals = require("../controllers/user_controller");
 const creditScore = require("../controllers/creditScore_controller");
 const bankData = require("../controllers/loan_offers_controller");
+const repaymentSchedule = require("../controllers/loan_repayment_controller");
 const encryptionMiddleWare = require("../middlewares/encryption_middleware");
 const {
   kycSchema,
@@ -40,5 +41,9 @@ router
 router
   .route("/loan-eligible")
   .post(validation(getLoanEligibleSchema), bankData.bank_details);
+
+router
+  .route("/loan-repayment-schedule")
+  .post(repaymentSchedule.loan_repayment_details);
 
 module.exports = router;

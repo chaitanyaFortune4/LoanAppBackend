@@ -36,6 +36,13 @@ const user_details = async (req, res) => {
         message:
           "Invalid Pancard details, given name did not match with name on Pancard",
       });
+    } else if (authBridgeResp.msg.dob !== dob) {
+      leadUserGenerator(connection, req.body);
+      return res.status(200).json({
+        success: false,
+        message:
+          "Invalid Pancard details, given date of birth did not match with Pancard",
+      });
     } else if (authBridgeResp.msg.status !== "Active") {
       leadUserGenerator(connection, req.body);
       return res.status(200).json({
