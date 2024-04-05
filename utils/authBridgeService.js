@@ -19,7 +19,7 @@ const { decrypt } = require("./common");
 // const authBridgeFailed = { msg: "Record not found", status: 9 };
 
 const checkAuthBridge = async (pancard_no) => {
-  const panNumber = decrypt(pancard_no);
+  // const panNumber = decrypt(pancard_no);
   const matchedPAN = pancards.find(
     (entry) => entry.pancard_number === pancard_no
   );

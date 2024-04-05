@@ -22,7 +22,7 @@ const leadUserGenerator = async (connection, body) => {
 // Encryption and decryption functions
 const encrypt = (text, key = process.env.SECRET_KEY) => {
   const iv = crypto.randomBytes(16); // Generate a random IV (Initialization Vector)
-  const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
+  const cipher = crypto.createCipheriv("aes-128-cbc", key, iv);
   let encrypted = cipher.update(text, "utf8", "hex");
   encrypted += cipher.final("hex");
   // Concatenate IV with encrypted data
@@ -34,7 +34,7 @@ const decrypt = (encryptedDataWithIV, key = process.env.SECRET_KEY) => {
   console.log(encryptedDataWithIV, key);
   const iv = Buffer.from(encryptedDataWithIV.slice(0, 32), "hex");
   const encryptedData = encryptedDataWithIV.slice(32); // Extract encrypted data
-  const decipher = crypto.createDecipheriv("aes-256-cbc", key, iv);
+  const decipher = crypto.createDecipheriv("aes-128-cbc", key, iv);
   let decrypted = decipher.update(encryptedData, "hex", "utf8");
   decrypted += decipher.final("utf8");
 
