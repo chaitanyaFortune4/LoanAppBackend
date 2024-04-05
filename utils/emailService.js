@@ -404,7 +404,7 @@ const sendEmailOtp = async (otp_params) => {
     }
 };
 
-const sendEmailLeadNo = async (email, lead_no, Data) => {
+const sendEmailLeadNo = async (email, lead_no, name, Data) => {
     try {
         const msg = {
             to: email,
@@ -588,7 +588,8 @@ const sendEmailLeadNo = async (email, lead_no, Data) => {
             </table>
             <!-- pre-header end -->
             <!-- header -->
-            <h1>Loan Application Lead Number :${lead_no}</h1>
+            <p>Hello ${name}</p>
+            <h1>Your Application Lead Number :${lead_no}</h1>
         
             <!-- contact section -->
         
