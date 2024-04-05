@@ -24,7 +24,7 @@ const requestOtp = async (req, res) => {
       // };
       // let insert_otp_query = `INSERT INTO otp_verification SET ? `;
       // await connection.query(insert_otp_query, userdata);
-      await client.set(`${mobile_no}`, JSON.stringify(otp), { EX: 120 });
+      await client.set(`${mobile_no}`, JSON.stringify(otp), { EX: 60 });
     } else {
       return res.status(200).json({
         success: false,
