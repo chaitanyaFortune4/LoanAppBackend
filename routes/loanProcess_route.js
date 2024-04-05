@@ -16,6 +16,7 @@ const {
   pancardSchema,
   getUserDetailsSchema,
   getLoanEligibleSchema,
+  repaymentScheduleSchema,
 } = require("../utils/validations");
 const encryptionMiddleWare = require("../middlewares/encryption_middleware");
 
@@ -50,6 +51,9 @@ router
 
 router
   .route("/loan-repayment-schedule")
-  .post(repaymentSchedule.loan_repayment_details);
+  .post(
+    validation(repaymentScheduleSchema),
+    repaymentSchedule.loan_repayment_details
+  );
 
 module.exports = router;

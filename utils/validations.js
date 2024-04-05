@@ -146,6 +146,24 @@ const getLoanEligibleSchema = yup.object({
     .required(),
 });
 
+const repaymentScheduleSchema = yup.object({
+  totalLoan_amount: yup
+    .number()
+    .positive("Total Amount must be a positive number")
+    .integer("Total Amount must be an integer")
+    .required(),
+  repayment_months: yup
+    .number()
+    .positive("Repayment months must be a positive number")
+    .integer("Repayment months must be an integer")
+    .required(),
+  interest_rate: yup
+    .number()
+    .positive("Interest rate must be a positive number")
+    .integer("Interest rate must be an integer")
+    .required(),
+});
+
 module.exports = {
   kycSchema,
   requestOtpSchema,
@@ -153,4 +171,5 @@ module.exports = {
   pancardSchema,
   getUserDetailsSchema,
   getLoanEligibleSchema,
+  repaymentScheduleSchema,
 };
