@@ -98,7 +98,7 @@ const user_details = async (req, res) => {
       success: true,
       message:
         "Lead generated successfully, Please check your email for Lead Number",
-      data: { ...req.body },
+      data: req.body,
     });
   } catch (error) {
     console.log("user Error", error);

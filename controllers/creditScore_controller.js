@@ -14,7 +14,7 @@ const creditScore = async (req, res) => {
       res.status(200).json({
         success: true,
         message: "Credit score fetched successfully",
-        data,
+        data: data,
       });
     } else {
       res.status(200).json({

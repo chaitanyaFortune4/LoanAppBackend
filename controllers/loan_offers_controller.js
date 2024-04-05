@@ -20,7 +20,6 @@ const bank_details = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Get Bank Offers failed",
-      error: error,
     });
   }
 };

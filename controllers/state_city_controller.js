@@ -13,7 +13,7 @@ const getStateCity = async (req, res) => {
       return res.status(200).json({
         success: true,
         message: "Cities found",
-        cities: stateCities,
+        data: stateCities,
       });
     }
 
@@ -21,7 +21,7 @@ const getStateCity = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "States found",
-      states: statesData,
+      data: statesData,
     });
   } catch (error) {
     console.log(error);

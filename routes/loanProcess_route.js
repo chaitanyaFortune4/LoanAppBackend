@@ -8,7 +8,7 @@ const userDetals = require("../controllers/user_controller");
 const creditScore = require("../controllers/creditScore_controller");
 const bankData = require("../controllers/loan_offers_controller");
 const repaymentSchedule = require("../controllers/loan_repayment_controller");
-const encryptionMiddleWare = require("../middlewares/encryption_middleware");
+const decryptionMiddleWare = require("../middlewares/decryption_middleware");
 const {
   kycSchema,
   requestOtpSchema,
@@ -17,6 +17,7 @@ const {
   getUserDetailsSchema,
   getLoanEligibleSchema,
 } = require("../utils/validations");
+const encryptionMiddleWare = require("../middlewares/encryption_middleware");
 
 // router
 //   .route("/kyc-details")
@@ -30,7 +31,12 @@ router
   .post(validation(verifyOtpSchema), otpController.verifyOtp);
 router
   .route("/kyc-details")
-  .post(validation(kycSchema), userDetals.user_details);
+  .post(
+    decryptionMiddleWare,
+    validation(kycSchema),
+    encryptionMiddleWare,
+    userDetals.user_details
+  );
 
 router
   .route("/get-user-details")
