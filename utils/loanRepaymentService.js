@@ -1,3 +1,5 @@
+const { formatNumber } = require("./common");
+
 const generateRepaymentSchedule = async (
   totalLoanAmount,
   repaymentMonths,
@@ -16,11 +18,11 @@ const generateRepaymentSchedule = async (
     balance -= principalPaid;
 
     schedule.push({
-      month: month.toString(),
-      principalAmount: principalPaid.toFixed(2),
-      interestCharged: interestCharged.toFixed(2),
-      totalPayment: monthlyPayment.toFixed(2),
-      balanceAmount: balance.toFixed(2),
+      month: formatNumber(month),
+      principalAmount: formatNumber(principalPaid),
+      interestCharged: formatNumber(interestCharged),
+      totalPayment: formatNumber(monthlyPayment),
+      balanceAmount: formatNumber(balance),
     });
   }
 
