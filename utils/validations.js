@@ -165,7 +165,7 @@ const repaymentScheduleSchema = yup.object({
   bank_id: yup
     .number()
     .positive("Bank id must be a positive number")
-    .integer("Bank idmust be an integer")
+    .integer("Bank id must be an integer")
     .required(),
 });
 

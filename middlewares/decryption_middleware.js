@@ -6,9 +6,18 @@ const decryptionMiddleWare = async (req, res, next) => {
 
     // console.log("Edata", Edata);
 
-    const decryptedBody = decrypt(Edata);
-
-    req.body = JSON.parse(decryptedBody);
+    if (Edata) {
+      const decryptedBody = decrypt(Edata);
+      req.body = JSON.parse(decryptedBody);
+      next();
+    } else {
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: "Data not encrypted by AES standard",
+        });
+    }
 
     // if (pancard_no) {
     // const encryptedBody = encrypt(JSON.stringify(req.body));
@@ -28,8 +37,6 @@ const decryptionMiddleWare = async (req, res, next) => {
     // console.log("DA", decryptedAadhar);
     // req.body.aadharcard_no=decryptedAadhar
     // }
-
-    next();
   } catch (error) {
     next(error);
   }
