@@ -25,7 +25,7 @@ const loan_repayment_details = async (req, res) => {
           applied_loan_amount: totalLoan_amount,
           repayment_months: repayment_months,
         },
-        repaymentSchedule: repaymentSchedule,
+        repayment_schedule: repaymentSchedule,
       },
     });
   } catch (error) {
