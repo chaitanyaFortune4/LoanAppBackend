@@ -162,6 +162,11 @@ const repaymentScheduleSchema = yup.object({
     .positive("Interest rate must be a positive number")
     .integer("Interest rate must be an integer")
     .required(),
+  bank_id: yup
+    .number()
+    .positive("Bank id must be a positive number")
+    .integer("Bank idmust be an integer")
+    .required(),
 });
 
 module.exports = {
