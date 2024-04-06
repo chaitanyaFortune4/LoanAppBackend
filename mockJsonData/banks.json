@@ -2,6 +2,8 @@
   {
     "id": 1,
     "name": "ICICI BANK",
+    "ifsc_code": "IC0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 700,
     "min_amount": 550000,
     "roi": 12
@@ -9,6 +11,8 @@
   {
     "id": 2,
     "name": "HDFC BANK",
+    "ifsc_code": "HD0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 700,
     "min_amount": 600000,
     "roi": 13
@@ -16,6 +20,8 @@
   {
     "id": 3,
     "name": "KOTAK BANK",
+    "ifsc_code": "KB0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 700,
     "min_amount": 450000,
     "roi": 11
@@ -23,6 +29,8 @@
   {
     "id": 4,
     "name": "YES BANK",
+    "ifsc_code": "YB0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 700,
     "min_amount": 400000,
     "roi": 10
@@ -30,6 +38,8 @@
   {
     "id": 5,
     "name": "RBL BANK",
+    "ifsc_code": "RB0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 700,
     "min_amount": 450000,
     "roi": 12
@@ -37,6 +47,8 @@
   {
     "id": 6,
     "name": "SBI BANK",
+    "ifsc_code": "SBI0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 600,
     "min_amount": 300000,
     "roi": 15
@@ -44,6 +56,8 @@
   {
     "id": 7,
     "name": "UCO BANK",
+    "ifsc_code": "UB0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 600,
     "min_amount": 250000,
     "roi": 16
@@ -51,6 +65,8 @@
   {
     "id": 8,
     "name": "Indian Bank",
+    "ifsc_code": "IB0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 600,
     "min_amount": 250000,
     "roi": 17
@@ -58,6 +74,8 @@
   {
     "id": 9,
     "name": "Bank of India",
+    "ifsc_code": "BOI0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 600,
     "min_amount": 150000,
     "roi": 12
@@ -65,6 +83,8 @@
   {
     "id": 10,
     "name": "Central Bank of India",
+    "ifsc_code": "CBI0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 600,
     "min_amount": 150000,
     "roi": 15
@@ -72,6 +92,8 @@
   {
     "id": 11,
     "name": "Bandhan Financial Services Limited",
+    "ifsc_code": "BFS0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 400,
     "min_amount": 150000,
     "roi": 19
@@ -79,6 +101,8 @@
   {
     "id": 12,
     "name": "Annapurna Microfinance Pvt Ltd.",
+    "ifsc_code": "AMP0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 400,
     "min_amount": 250000,
     "roi": 26
@@ -86,6 +110,8 @@
   {
     "id": 13,
     "name": "Asirvad Microfinance Limited.",
+    "ifsc_code": "AML0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 400,
     "min_amount": 250000,
     "roi": 22
@@ -93,6 +119,8 @@
   {
     "id": 14,
     "name": "Mutual Trust Microfinance Bank.",
+    "ifsc_code": "AML0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 400,
     "min_amount": 350000,
     "roi": 20
@@ -100,6 +128,8 @@
   {
     "id": 15,
     "name": "AB Microfinance Bank.",
+    "ifsc_code": "AML0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 400,
     "min_amount": 245000,
     "roi": 24
@@ -107,13 +137,18 @@
   {
     "id": 16,
     "name": "Aditya Birla Capital",
+    "ifsc_code": "AML0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 0,
+
     "min_amount": 25000,
     "roi": 15
   },
   {
     "id": 17,
     "name": "IIFL Finance",
+    "ifsc_code": "AML0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 0,
     "min_amount": 145000,
     "roi": 25
@@ -121,6 +156,8 @@
   {
     "id": 18,
     "name": "HDB Financial Services",
+    "ifsc_code": "AML0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 0,
     "min_amount": 145000,
     "roi": 19
@@ -128,6 +165,8 @@
   {
     "id": 19,
     "name": "Tata Capital",
+    "ifsc_code": "AML0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 0,
     "min_amount": 45000,
     "roi": 34
@@ -135,6 +174,8 @@
   {
     "id": 20,
     "name": "Mahindra Finance",
+    "ifsc_code": "MF0001",
+    "address": "xxxxxxxxxxxxxxxxxxxx",
     "min_credit_score": 0,
     "min_amount": 20000,
     "roi": 32

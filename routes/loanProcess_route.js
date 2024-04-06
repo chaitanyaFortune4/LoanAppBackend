@@ -43,7 +43,11 @@ router
 
 router
   .route("/get-user-details")
-  .post(validation(getUserDetailsSchema), userDetals.getUserDetails);
+  .post(
+    validation(getUserDetailsSchema),
+    encryptionMiddleWare,
+    userDetals.getUserDetails
+  );
 router
   .route("/credit-score")
   .post(validation(pancardSchema), creditScore.creditScore);

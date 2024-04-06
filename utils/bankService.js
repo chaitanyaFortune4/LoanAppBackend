@@ -1,3 +1,5 @@
+const { formatNumber } = require("./common");
+
 const suggestBanks = async (
   userCreditScore,
   requiredLoanAmount,
@@ -33,14 +35,16 @@ const suggestBanks = async (
       // Calculate monthly interest
       const monthlyInterest =
         (totalLoanAmount - requiredLoanAmount) / numberOfPayments;
-      const totalInterest = monthlyInterest * repaymentMonths
+      const totalInterest = monthlyInterest * repaymentMonths;
       suggestedBanks.push({
-        name: bank.name,
-        interestRate: parseFloat(bank.roi),
-        totalAmountPayable: totalLoanAmount.toFixed(2),
-        totalInterestPayable: totalInterest.toFixed(2),
-        monthlyPayment: monthlyPayment.toFixed(2), // Round to 2 decimal places
-        monthlyInterest: monthlyInterest.toFixed(2), // Round to 2 decimal places
+        bankId: bank.id,
+        bankName: bank.name,
+        interestRate: formatNumber(bank.roi),
+        loanAmountApplied: formatNumber(requiredLoanAmount),
+        totalAmountPayable: formatNumber(totalLoanAmount),
+        totalInterestPayable: formatNumber(totalInterest),
+        monthlyPayment: formatNumber(monthlyPayment),
+        monthlyInterest: formatNumber(monthlyInterest),
       });
     }
   });

@@ -1,5 +1,9 @@
 const crypto = require("crypto");
 
+function formatNumber(number) {
+  return Number.isInteger(number) ? number.toString() : number.toFixed(2);
+}
+
 const leadNumberGenerator = () => {
   return (
     "LOAN" +
@@ -41,6 +45,7 @@ const decrypt = (encryptedDataWithIV, key = process.env.SECRET_KEY) => {
 };
 
 module.exports = {
+  formatNumber,
   leadNumberGenerator,
   leadUserGenerator,
   encrypt,

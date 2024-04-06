@@ -29,7 +29,10 @@ const user_details = async (req, res) => {
         success: false,
         message: "Invalid Pancard, verfication failed",
       });
-    } else if (authBridgeResp.msg.nameOnTheCard !== nameOnCard) {
+    } else if (
+      authBridgeResp.msg.nameOnTheCard.toLowerCase() !==
+      nameOnCard.toLowerCase()
+    ) {
       leadUserGenerator(connection, req.body);
       return res.status(200).json({
         success: false,
@@ -66,7 +69,12 @@ const user_details = async (req, res) => {
       let result = await connection.query(
         `SELECT lead_no FROM loan_lead WHERE user_id = "${data[0][0].user_id}" `
       );
-      await sendEmailLeadNo(email_id, result[0][0].lead_no, first_name, (data = "Updated"));
+      await sendEmailLeadNo(
+        email_id,
+        result[0][0].lead_no,
+        first_name,
+        (data = "Updated")
+      );
       await client.set(`${result[0][0].lead_no}`, JSON.stringify(req.body));
       return res.status(201).json({
         success: true,
@@ -88,7 +96,7 @@ const user_details = async (req, res) => {
       loanBody
     );
     if (result1[0].affectedRows === 1) {
-      await sendEmailLeadNo(email_id, Lead_no,first_name);
+      await sendEmailLeadNo(email_id, Lead_no, first_name);
       await client.set(
         `${Lead_no}`,
         JSON.stringify({ ...loanBody, ...req.body })
