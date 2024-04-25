@@ -17,7 +17,6 @@ const encryptionMiddleWare = async (req, res, next) => {
     const originalJson = res.json;
     res.json = function (data) {
       if (data && data.data) {
-        // Check if 'data' property exists
         const encryptedData = encrypt(JSON.stringify(data.data));
         data.data = encryptedData;
       }
